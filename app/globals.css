@@ -1,27 +1,71 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Gordita:wght@400;700&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body,
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  color: #a42e4b;
+  overflow-x: hidden;
+  font-family: "Gordita", sans-serif;
+  font-weight: var(--fw-reg);
+}
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --ff-primary: "Gordita", serif;
+  --ff-secondary: "Merriweather", serif;
+
+  --fw-reg: 500;
+  --fw-bold: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+h1,
+h2,
+h4,
+h3,
+h5,
+h6,
+p,
+span,
+a {
+  font-family: Gordita, sans-serif;
+}
+
+.button {
+  font-size: 18px;
+  color: #fafafa;
+  font-family: "Gordita", sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 16px;
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #a42e4b;
+  border-radius: 10px;
+  white-space: nowrap;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.active-link {
+  color: #0006a8;
 }

@@ -33,12 +33,12 @@ const Checkout: React.FC = () => {
           <div>
             <p>Review your order details and proceed to payment:</p>
 
-            <button
+            {/* <button
               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
               onClick={handlePayment}
             >
               Proceed to Payment
-            </button>
+            </button> */}
           </div>
         )}
       </div>

@@ -11,7 +11,7 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
   const product = {
     id: Number(productId),
     name: "Sample Product",
-    price: 29.99,
+    price: 2550.99,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   };
 
@@ -22,14 +22,14 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
         {productId ? (
           <div className="bg-white p-8 rounded-md shadow-md">
             <h3 className="text-2xl font-semibold mb-4">{product.name}</h3>
-            <p className="text-gray-600 mb-4">${product.price.toFixed(2)}</p>
+            <p className="text-gray-600 mb-4">N{product.price.toFixed(2)}</p>
             <p className="text-gray-800">{product.description}</p>
-            <button
+            {/* <button
               className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
               onClick={() => console.log(`Add to cart: ${product.name}`)}
             >
               Add to Cart
-            </button>
+            </button> */}
           </div>
         ) : (
           <p>Loading...</p>

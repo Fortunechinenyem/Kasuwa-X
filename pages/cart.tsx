@@ -30,27 +30,27 @@ const Cart: React.FC<CartProps> = () => {
                   <p className="text-gray-600 mb-2">
                     Quantity: {item.quantity}
                   </p>
-                  <button
+                  {/* <button
                     className="text-red-500 hover:underline focus:outline-none focus:ring focus:border-blue-300"
                     onClick={() =>
                       console.log(`Remove from cart: ${item.name}`)
                     }
                   >
                     Remove
-                  </button>
+                  </button> */}
                 </li>
               ))}
             </ul>
             <div className="mt-8 bg-white p-4 rounded-md shadow-md">
               <h3 className="text-xl font-semibold mb-4">
-                Total: ${calculateTotal().toFixed(2)}
+                Total: N{calculateTotal().toFixed(2)}
               </h3>
-              <button
+              {/* <button
                 className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
                 onClick={() => console.log("Proceed to Checkout")}
               >
                 Proceed to Checkout
-              </button>
+              </button> */}
             </div>
           </div>
         ) : (

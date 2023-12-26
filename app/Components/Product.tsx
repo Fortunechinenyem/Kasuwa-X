@@ -33,7 +33,7 @@ const Product: React.FC<ProductProps> = ({ id, name, price }) => {
   return (
     <div className="bg-white p-4 rounded-md shadow-md">
       <h3 className="text-lg font-semibold mb-2">{name}</h3>
-      <p className="text-gray-600 mb-2">${price.toFixed(2)}</p>
+      <p className="text-gray-600 mb-2">N{price.toFixed(2)}</p>
       <button
         id={`addToCartButton-${id}`}
         className="button px-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:ring focus:border-blue-300"

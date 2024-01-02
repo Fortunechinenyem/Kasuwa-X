@@ -5,7 +5,7 @@ const CurrencySelector: React.FC = () => {
   return (
     <div className="currency-selector">
       {/* Add your currency selection UI */}
-      <p>Choose Currency</p>
+      <p className="text-center">Choose Currency</p>
     </div>
   );
 };

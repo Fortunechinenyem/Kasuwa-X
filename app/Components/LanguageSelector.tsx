@@ -5,7 +5,7 @@ const LanguageSelector: React.FC = () => {
   return (
     <div className="language-selector">
       {/* Add your language selection UI */}
-      <p>Choose Language</p>
+      <p className="text-center">Choose Language</p>
     </div>
   );
 };

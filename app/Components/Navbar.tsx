@@ -12,14 +12,14 @@ const Navbar: React.FC = () => {
     <nav className="text-black p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className=" text-lg font-bold">
-          <Image src={Logo} alt="logo" width={110} priority />
+          <Image src={Logo} alt="logo" width={150} priority />
         </Link>
         <div className="flex items-center space-x-4">
           <div className="relative">
             <input
               type="text"
               placeholder="Search"
-              className="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              className="py-2 px-3 border border-gray-400 rounded-md focus:outline-none focus:border-blue-500"
             />
             <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
               <svg

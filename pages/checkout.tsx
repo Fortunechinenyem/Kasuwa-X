@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "@/app/Components/Layout";
+import Layout from "@/app/Layouts/DefaultLayout";
 import axios from "axios";
 
 const Checkout: React.FC = () => {

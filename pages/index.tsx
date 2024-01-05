@@ -2,12 +2,13 @@ import React from "react";
 
 import BestDeals from "@/app/Components/BestDeals";
 import Hero from "@/app/Components/Hero";
-import Layout from "@/app/Components/Layout";
+
 import FeaturedCategories from "@/app/Components/FeaturedCategories";
 import LocalBrandsShowcase from "@/app/Components/LocalBrandsShowcase";
 import CurrencySelector from "@/app/Components/CurrencySelector";
 import LanguageSelector from "@/app/Components/LanguageSelector";
 import ProductRecommendations from "@/app/Components/ProductRecommendations";
+import DefaultLayout from "@/app/Layouts/DefaultLayout";
 
 const featuredCategories = [
   {
@@ -39,15 +40,16 @@ const bestDeals = [
 
 const Homepage: React.FC = () => {
   return (
-    <Layout>
+    <DefaultLayout>
       <Hero />
-      <FeaturedCategories categories={featuredCategories} />
-      <LocalBrandsShowcase brands={localBrands} />
       <CurrencySelector />
       <LanguageSelector />
+      <FeaturedCategories categories={featuredCategories} />
+      <LocalBrandsShowcase brands={localBrands} />
+
       <ProductRecommendations products={recommendedProducts} />
       <BestDeals products={bestDeals} />
-    </Layout>
+    </DefaultLayout>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "@/app/Components/Layout";
+import Layout from "@/app/Layouts/DefaultLayout";
 
 const Payment: React.FC = () => {
   return (

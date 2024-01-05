@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "@/app/Components/Layout";
+import Layout from "@/app/Layouts/DefaultLayout";
 
 interface CartProps {}
 
@@ -19,7 +19,6 @@ const Cart: React.FC<CartProps> = () => {
   return (
     <Layout>
       <div className="container mx-auto my-8">
-        <h2 className="text-3xl font-semibold mb-4">Shopping Cart Page</h2>
         {cartItems.length > 0 ? (
           <div>
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -30,14 +29,14 @@ const Cart: React.FC<CartProps> = () => {
                   <p className="text-gray-600 mb-2">
                     Quantity: {item.quantity}
                   </p>
-                  {/* <button
+                  <button
                     className="text-red-500 hover:underline focus:outline-none focus:ring focus:border-blue-300"
                     onClick={() =>
                       console.log(`Remove from cart: ${item.name}`)
                     }
                   >
                     Remove
-                  </button> */}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -45,12 +44,12 @@ const Cart: React.FC<CartProps> = () => {
               <h3 className="text-xl font-semibold mb-4">
                 Total: N{calculateTotal().toFixed(2)}
               </h3>
-              {/* <button
+              <button
                 className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
                 onClick={() => console.log("Proceed to Checkout")}
               >
                 Proceed to Checkout
-              </button> */}
+              </button>
             </div>
           </div>
         ) : (

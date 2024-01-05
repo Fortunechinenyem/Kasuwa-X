@@ -1,40 +1,60 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import Image from "next/image";
 import Logo from "../../public/images/kasuwalogo.svg";
+import Hamburger from "./svg/hamburger";
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [hasScrolled, setHasScrolled] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setHasScrolled(true);
+    } else {
+      setHasScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const categories = [
+    { id: 1, name: "Men", slug: "men" },
+    { id: 2, name: "Women", slug: "women" },
+    { id: 2, name: "Children", slug: "children" },
+  ];
 
   return (
-    <nav className="text-black p-4">
+    <nav
+      className={`fixed  top-0 w-full flex flex-col md:flex-row items-center justify-between p-4 text-xl bg-white transition-all ease-in-out duration-300 ${
+        hasScrolled ? "shadow-lg" : ""
+      }`}
+      style={{ zIndex: 1000 }}
+    >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
         <Link href="/" className="text-lg font-bold">
           <Image src={Logo} alt="logo" width={150} priority />
         </Link>
 
-        {/* Hamburger Menu Button (visible on smaller screens) */}
-        <div className="md:hidden">
-          <button onClick={toggleMenu}>
-            {menuOpen ? <FaTimes /> : <FaBars />}
-          </button>
-        </div>
+        <button className="md:hidden focus:outline-none" onClick={toggleMenu}>
+          <Hamburger menuOpen={menuOpen} />
+        </button>
 
-        {/* Navbar Links (visible on larger screens) */}
         <div
           className={`md:flex items-center space-x-4 ${
             menuOpen ? "flex" : "hidden"
           }`}
         >
-          {/* Search Input */}
           <div className="">
             <input
               type="text"
@@ -43,12 +63,36 @@ const Navbar: React.FC = () => {
             />
           </div>
 
-          {/* Cart Icon */}
+          <div className="relative group">
+            <button className="group flex  items-center">
+              <span className="mr-2">Categories</span>
+              <svg
+                className="fill-current text-gray-500"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div className="absolute left-0 mt-2 space-y-2 hidden group-hover:block bg-white border border-gray-300 rounded-md shadow-md">
+              {categories.map((category) => (
+                <Link
+                  key={category.id}
+                  href={`/category/[category]`}
+                  as={`/category/${category.slug}`}
+                  className="block px-4 py-2"
+                >
+                  {category.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <Link href="/cart" className="items-center md:items-start">
             <FaShoppingCart className="mr-2" />
           </Link>
 
-          {/* Login Button */}
           <Link href="/account/login" className=" md:block">
             <button className="button">Login</button>
           </Link>

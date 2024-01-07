@@ -1,4 +1,5 @@
 import React from "react";
+import { useCart } from "../Components/CartContext";
 
 interface DynamicAddToCartButtonProps {
   id: number;
@@ -7,8 +8,10 @@ interface DynamicAddToCartButtonProps {
 const DynamicAddToCartButton: React.FC<DynamicAddToCartButtonProps> = ({
   id,
 }) => {
+  const { addToCart } = useCart();
+
   return (
-    <button id={`addToCartButton-${id}`} className="button ">
+    <button id={`addToCartButton-${id}`} className="button" onClick={addToCart}>
       Add to Cart
     </button>
   );

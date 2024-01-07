@@ -45,7 +45,7 @@ const Cart: React.FC<CartProps> = () => {
                 Total: N{calculateTotal().toFixed(2)}
               </h3>
               <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+                className="button"
                 onClick={() => console.log("Proceed to Checkout")}
               >
                 Proceed to Checkout

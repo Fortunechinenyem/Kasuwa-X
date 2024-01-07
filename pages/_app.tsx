@@ -1,16 +1,16 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import { AppProps } from "next/app";
 import "../styles/globals.css";
 import Head from "next/head";
 import React from "react";
 import { Metadata } from "next";
+import { CartProvider } from "@/app/Components/CartContext";
 
 export const metadata: Metadata | any = {
   title: "Kasuwa",
   description: "An E-Commerce Platform",
 };
 
-const TechloQuent = ({ Component, ...appProps }: AppProps) => {
+const KasuwaX = ({ Component, ...appProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -46,11 +46,13 @@ const TechloQuent = ({ Component, ...appProps }: AppProps) => {
         <meta name="description" content={metadata?.description} />
         <meta property="og:type" content="website" />
       </Head>
-      <main>
-        <Component {...appProps} />
-      </main>
+      <CartProvider>
+        <main>
+          <Component {...appProps} />
+        </main>
+      </CartProvider>
     </>
   );
 };
 
-export default TechloQuent;
+export default KasuwaX;

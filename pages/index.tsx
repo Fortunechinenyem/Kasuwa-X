@@ -1,14 +1,12 @@
 import React from "react";
-
-import BestDeals from "@/app/Components/BestDeals";
+import DefaultLayout from "@/app/Layouts/DefaultLayout";
 import Hero from "@/app/Components/Hero";
-
 import FeaturedCategories from "@/app/Components/FeaturedCategories";
 import LocalBrandsShowcase from "@/app/Components/LocalBrandsShowcase";
 import CurrencySelector from "@/app/Components/CurrencySelector";
 import LanguageSelector from "@/app/Components/LanguageSelector";
 import ProductRecommendations from "@/app/Components/ProductRecommendations";
-import DefaultLayout from "@/app/Layouts/DefaultLayout";
+import BestDeals from "@/app/Components/BestDeals";
 
 const featuredCategories = [
   {
@@ -46,7 +44,6 @@ const Homepage: React.FC = () => {
       <LanguageSelector />
       <FeaturedCategories categories={featuredCategories} />
       <LocalBrandsShowcase brands={localBrands} />
-
       <ProductRecommendations products={recommendedProducts} />
       <BestDeals products={bestDeals} />
     </DefaultLayout>

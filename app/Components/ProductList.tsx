@@ -1,4 +1,5 @@
 import React from "react";
+import DynamicAddToCartButton from "./DynamicAddToCartButton";
 
 interface Product {
   id: number;
@@ -19,12 +20,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
           <div key={product.id} className="bg-white p-4 rounded-md shadow-md">
             <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
             <p className="text-gray-600 mb-4">${product.price.toFixed(2)}</p>
-            <button
-              className="button"
-              onClick={() => console.log(`Add to cart: ${product.name}`)}
-            >
-              Add to Cart
-            </button>
+            <DynamicAddToCartButton id={product.id} />
           </div>
         ))}
       </div>

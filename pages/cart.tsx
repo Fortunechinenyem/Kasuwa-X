@@ -1,13 +1,9 @@
 import React from "react";
 import Layout from "@/app/Layouts/DefaultLayout";
+import { useCart } from "@/app/Components/CartContext";
 
-interface CartProps {}
-
-const Cart: React.FC<CartProps> = () => {
-  const cartItems = [
-    { id: 1, name: "Product 1", price: 19.99, quantity: 2 },
-    { id: 2, name: "Product 2", price: 29.99, quantity: 1 },
-  ];
+const Cart: React.FC = () => {
+  const { cartItems, removeFromCart } = useCart();
 
   const calculateTotal = (): number => {
     return cartItems.reduce(
@@ -25,15 +21,13 @@ const Cart: React.FC<CartProps> = () => {
               {cartItems.map((item) => (
                 <li key={item.id} className="bg-white p-4 rounded-md shadow-md">
                   <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
-                  <p className="text-gray-600 mb-2">${item.price.toFixed(2)}</p>
+                  <p className="text-gray-600 mb-2">N{item.price.toFixed(2)}</p>
                   <p className="text-gray-600 mb-2">
                     Quantity: {item.quantity}
                   </p>
                   <button
                     className="text-red-500 hover:underline focus:outline-none focus:ring focus:border-blue-300"
-                    onClick={() =>
-                      console.log(`Remove from cart: ${item.name}`)
-                    }
+                    onClick={() => removeFromCart(item.id)}
                   >
                     Remove
                   </button>

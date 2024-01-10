@@ -1,25 +1,36 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, useCallback } from "react";
 
-interface CartContextProps {
-  children: ReactNode;
+interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
 }
 
 interface CartContextValue {
-  cartItems: number;
-  addToCart: () => void;
+  cartItems: CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (itemId: number) => void;
+}
+interface CartProviderProps {
+  children: React.ReactNode;
 }
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 
-export const CartProvider: React.FC<CartContextProps> = ({ children }) => {
-  const [cartItems, setCartItems] = useState(0);
+export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  const addToCart = () => {
-    setCartItems((prevItems) => prevItems + 1);
-  };
+  const addToCart = useCallback((item: CartItem) => {
+    setCartItems((prevItems) => [...prevItems, item]);
+  }, []);
+
+  const removeFromCart = useCallback((itemId: number) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  }, []);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

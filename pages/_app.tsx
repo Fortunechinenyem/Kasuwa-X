@@ -10,7 +10,7 @@ export const metadata: Metadata | any = {
   description: "An E-Commerce Platform",
 };
 
-const KasuwaX = ({ Component, ...appProps }: AppProps) => {
+const KasuwaX = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -43,12 +43,12 @@ const KasuwaX = ({ Component, ...appProps }: AppProps) => {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <title>{metadata?.title}</title>
-        <meta name="description" content={metadata?.description} />
+        <meta name="description" content={metadata.description} />
         <meta property="og:type" content="website" />
       </Head>
       <CartProvider>
         <main>
-          <Component {...appProps} />
+          <Component {...pageProps} />
         </main>
       </CartProvider>
     </>

@@ -20,7 +20,11 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
           <div key={product.id} className="bg-white p-4 rounded-md shadow-md">
             <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
             <p className="text-gray-600 mb-4">${product.price.toFixed(2)}</p>
-            <DynamicAddToCartButton id={product.id} />
+            <DynamicAddToCartButton
+              id={product.id}
+              name={product.name}
+              price={product.price}
+            />
           </div>
         ))}
       </div>

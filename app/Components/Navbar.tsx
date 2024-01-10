@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
       }`}
       style={{ zIndex: 1000 }}
     >
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex  justify-between items-center">
         <Link href="/" className="text-lg font-bold">
           <Image src={Logo} alt="logo" width={150} priority />
         </Link>
@@ -59,13 +59,13 @@ const Navbar: React.FC = () => {
         </button>
 
         <div
-          className={`md:flex items-center space-x-4 ${
-            menuOpen ? "flex" : "hidden"
+          className={`md:flex items-center space-x-4  ${
+            menuOpen ? "flex flex-row" : "hidden"
           }`}
         >
           <div
             className={`md:hidden fixed top-0 right-0 h-full bg-white p-4 ${
-              menuOpen ? "flex" : "hidden"
+              menuOpen ? "flex flex-col" : "hidden"
             }`}
           >
             <button
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
               Close
             </button>
 
-            <div className="flex flex-col items-end space-y-4">
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0">
               <div className=" flex flex-col">
                 <input
                   type="text"
@@ -111,8 +111,8 @@ const Navbar: React.FC = () => {
 
               <Link href="/cart" className="items-center md:items-start">
                 <FaShoppingCart className="mr-2" />
-                {cartItems > 0 && (
-                  <span className="cart-items">{cartItems}</span>
+                {cartItems.length > 0 && (
+                  <span className="cart-items">{cartItems.length}</span>
                 )}
               </Link>
 

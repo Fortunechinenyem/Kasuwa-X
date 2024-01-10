@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Layout from "@/app/Layouts/DefaultLayout";
 import axios from "axios";
+import Link from "next/link";
 
 const Checkout: React.FC = () => {
   const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
 
   const handlePayment = async () => {
     try {
+      // Simulating a payment request using axios
       const response = await axios.post(
         "https://jsonplaceholder.typicode.com/posts",
         {}
@@ -28,17 +30,23 @@ const Checkout: React.FC = () => {
       <div className="container mx-auto my-8">
         <h2 className="text-3xl font-semibold mb-4">Checkout Page</h2>
         {paymentStatus ? (
-          <p>{paymentStatus}</p>
+          <div>
+            <p>{paymentStatus}</p>
+            <Link href="/cart" className="button">
+              Back to Cart
+            </Link>
+          </div>
         ) : (
           <div>
             <p>Review your order details and proceed to payment:</p>
 
-            {/* <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-              onClick={handlePayment}
-            >
+            <button className="button mb-5 mt-5" onClick={handlePayment}>
               Proceed to Payment
-            </button> */}
+            </button>
+
+            <Link href="/cart" className="button">
+              Back to Cart
+            </Link>
           </div>
         )}
       </div>

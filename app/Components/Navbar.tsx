@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
       }`}
       style={{ zIndex: 1000 }}
     >
-      <div className="container mx-auto flex  justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-lg font-bold">
           <Image src={Logo} alt="logo" width={150} priority />
         </Link>
@@ -59,15 +59,11 @@ const Navbar: React.FC = () => {
         </button>
 
         <div
-          className={`md:flex items-center space-x-4  ${
-            menuOpen ? "flex flex-row" : "hidden"
+          className={`md:flex items-center space-x-4 ${
+            menuOpen ? "flex" : "hidden"
           }`}
         >
-          <div
-            className={`md:hidden fixed top-0 right-0 h-full bg-white p-4 ${
-              menuOpen ? "flex flex-col" : "hidden"
-            }`}
-          >
+          <div className="md:hidden fixed top-0 right-0 h-full bg-white p-4 flex flex-col">
             <button
               className="text-black hover:text-gray-700 ml-auto"
               onClick={closeMenu}

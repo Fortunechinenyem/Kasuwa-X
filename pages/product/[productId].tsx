@@ -25,7 +25,11 @@ const ProductDetail: React.FC<ProductDetailProps> = () => {
             <h3 className="text-2xl font-semibold mb-4">{product.name}</h3>
             <p className="text-gray-600 mb-4">N{product.price.toFixed(2)}</p>
             <p className="text-gray-800">{product.description}</p>
-            <DynamicAddToCartButton id={product.id} />
+            <DynamicAddToCartButton
+              id={product.id}
+              name={product.name}
+              price={product.price}
+            />
           </div>
         ) : (
           <p>Loading...</p>

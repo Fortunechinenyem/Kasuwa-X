@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
             </div>
             <div className="relative group">
               <button className="group flex items-center">
-                <span className="mr-2">Categories</span>
+                <span className="md:mt-2">Categories</span>
                 <svg
                   className="fill-current text-gray-500"
                   width="16"
@@ -91,10 +91,16 @@ const Navbar: React.FC = () => {
                 ))}
               </div>
             </div>
-            <Link href="/cart" className="items-center md:items-start">
+            <Link
+              href="/cart"
+              className="flex items-center md:items-start relative"
+            >
               <FaShoppingCart className="md:mt-2" />
+
               {cartItems.length > 0 && (
-                <span className="cart-items">{cartItems.length}</span>
+                <span className="cart-items absolute top-0   bg-[#a42e4b] text-white rounded-full p-1 text-xs md:static ml-2 md:ml-2">
+                  {cartItems.length}
+                </span>
               )}
             </Link>
 

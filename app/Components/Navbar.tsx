@@ -91,6 +91,7 @@ const Navbar: React.FC = () => {
                 ))}
               </div>
             </div>
+            <div></div>
             <Link
               href="/cart"
               className="flex items-center md:items-start relative"
@@ -104,7 +105,7 @@ const Navbar: React.FC = () => {
               )}
             </Link>
 
-            <Link href="/account/login" className="md:block">
+            <Link href="/account/login" className="md:block md:mt-2 ">
               <button className="button">Login</button>
             </Link>
           </div>

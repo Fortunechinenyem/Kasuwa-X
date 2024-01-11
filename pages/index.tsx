@@ -19,9 +19,9 @@ const featuredCategories = [
 ];
 
 const localBrands = [
-  { id: 1, name: "Local Brand 1", logo: "/images/local_brand1_logo.png" },
-  { id: 2, name: "Local Brand 2", logo: "/images/local_brand2_logo.png" },
-  { id: 3, name: "Local Brand 3", logo: "/images/local_brand3_logo.png" },
+  { id: 1, name: "Adire", logo: "/images/local_brand1_logo.png" },
+  { id: 2, name: "Isiagu", logo: "/images/local_brand2_logo.png" },
+  { id: 3, name: "Aso-oke", logo: "/images/local_brand3_logo.png" },
 ];
 
 const recommendedProducts = [

@@ -15,7 +15,7 @@ const Cart: React.FC = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto my-8">
+      <div className="container mx-auto my-8 p-2">
         {cartItems.length > 0 ? (
           <div>
             <h2 className="text-3xl font-semibold mb-6">Your Shopping Cart</h2>

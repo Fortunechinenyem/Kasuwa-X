@@ -35,7 +35,7 @@ const Payment: React.FC = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto my-8">
+      <div className="container mx-auto my-8 p-2">
         <h2 className="text-3xl font-semibold mb-4">Payment Page</h2>
 
         {paymentStatus ? (

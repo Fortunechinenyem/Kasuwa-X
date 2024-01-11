@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import { CartProvider } from "@/app/Components/CartContext";
 
 export const metadata: Metadata | any = {
-  title: "Kasuwa",
+  title: "Kasuwa-X",
   description: "An E-Commerce Platform",
 };
 

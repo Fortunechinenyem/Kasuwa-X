@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
               className="text-black hover:text-gray-700 ml-auto"
               onClick={closeMenu}
             >
-              Close
+              X
             </button>
 
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0">

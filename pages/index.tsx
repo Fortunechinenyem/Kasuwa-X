@@ -1,34 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DefaultLayout from "@/app/Layouts/DefaultLayout";
 import Hero from "@/app/Components/Hero";
-import FeaturedCategories from "@/app/Components/FeaturedCategories";
-import LocalBrandsShowcase from "@/app/Components/LocalBrandsShowcase";
+
 import CurrencySelector from "@/app/Components/CurrencySelector";
 import LanguageSelector from "@/app/Components/LanguageSelector";
-import ProductRecommendations from "@/app/Components/ProductRecommendations";
+
 import BestDeals from "@/app/Components/BestDeals";
 
-const featuredCategories = [
-  {
-    id: 1,
-    name: "Traditional Attire",
-    image: "/images/traditional_attire.jpg",
-  },
-  { id: 2, name: "Local Crafts", image: "/images/local_crafts.jpg" },
-  { id: 3, name: "African Foods", image: "/images/african_foods.jpg" },
-];
-
-const localBrands = [
-  { id: 1, name: "Adire", logo: "/images/local_brand1_logo.png" },
-  { id: 2, name: "Isiagu", logo: "/images/local_brand2_logo.png" },
-  { id: 3, name: "Aso-oke", logo: "/images/local_brand3_logo.png" },
-];
-
-const recommendedProducts = [
-  { id: 4, name: "Recommended Product 1", price: 199.99 },
-  { id: 5, name: "Recommended Product 2", price: 149.99 },
-  { id: 6, name: "Recommended Product 3", price: 99.99 },
-];
+import {
+  searchProducts,
+  getProductDetails,
+  getCategoryProducts,
+} from "../jumiaApi";
 
 const bestDeals = [
   { id: 1, name: "Deal 1", price: 3500.99 },
@@ -37,14 +20,62 @@ const bestDeals = [
 ];
 
 const Homepage: React.FC = () => {
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [productDetails, setProductDetails] = useState<any | null>(null);
+  const [categoryProducts, setCategoryProducts] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const results = await searchProducts("macbook pro", 50);
+        console.log("Search Results:", results);
+        setSearchResults(results);
+
+        const details = await getProductDetails("your-product-id-here");
+        console.log("Product Details:", details);
+        setProductDetails(details);
+
+        const categoryProds = await getCategoryProducts("iphone");
+        console.log("Category Products:", categoryProds);
+        setCategoryProducts(categoryProds);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <DefaultLayout>
       <Hero />
       <CurrencySelector />
       <LanguageSelector />
-      <FeaturedCategories categories={featuredCategories} />
-      <LocalBrandsShowcase brands={localBrands} />
-      <ProductRecommendations products={recommendedProducts} />
+      <div>
+        <h2>Search Results</h2>
+        <ul>
+          {searchResults.map((result) => (
+            <li key={result.id}>{result.name}</li>
+          ))}
+        </ul>
+      </div>
+
+      {productDetails && (
+        <div>
+          <h2>Product Details</h2>
+          <p>Name: {productDetails.name}</p>
+          <p>Price: {productDetails.price}</p>
+        </div>
+      )}
+
+      <div>
+        <h2>Category Products</h2>
+        <ul>
+          {categoryProducts.map((product) => (
+            <li key={product.id}>{product.name}</li>
+          ))}
+        </ul>
+      </div>
       <BestDeals products={bestDeals} />
     </DefaultLayout>
   );

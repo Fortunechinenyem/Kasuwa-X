@@ -4,6 +4,7 @@ import Head from "next/head";
 import React from "react";
 import { Metadata } from "next";
 import { CartProvider } from "@/app/Components/CartContext";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata | any = {
   title: "Kasuwa-X",
@@ -33,9 +34,11 @@ const KasuwaX = ({ Component, pageProps }: AppProps) => {
         <meta property="og:type" content="website" />
       </Head>
       <CartProvider>
-        <main>
-          <Component {...pageProps} />
-        </main>
+        <SessionProvider session={pageProps.session}>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </SessionProvider>
       </CartProvider>
     </>
   );

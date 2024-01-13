@@ -1,45 +1,34 @@
 import React, { useEffect, useState } from "react";
 import DefaultLayout from "@/app/Layouts/DefaultLayout";
 import Hero from "@/app/Components/Hero";
-
 import CurrencySelector from "@/app/Components/CurrencySelector";
 import LanguageSelector from "@/app/Components/LanguageSelector";
-
 import BestDeals from "@/app/Components/BestDeals";
-
-import {
-  searchProducts,
-  getProductDetails,
-  getCategoryProducts,
-} from "../jumiaApi";
 
 const bestDeals = [
   { id: 1, name: "Deal 1", price: 3500.99 },
   { id: 2, name: "Deal 2", price: 2500.99 },
   { id: 3, name: "Deal 3", price: 1500.99 },
 ];
-
 const Homepage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<any[]>([]);
-  const [productDetails, setProductDetails] = useState<any | null>(null);
-  const [categoryProducts, setCategoryProducts] = useState<any[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const results = await searchProducts("macbook pro", 50);
-        console.log("Search Results:", results);
-        setSearchResults(results);
+        const res = await fetch("https://dummyjson.com/products");
 
-        const details = await getProductDetails("your-product-id-here");
-        console.log("Product Details:", details);
-        setProductDetails(details);
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data. Status: ${res.status}`);
+        }
 
-        const categoryProds = await getCategoryProducts("iphone");
-        console.log("Category Products:", categoryProds);
-        setCategoryProducts(categoryProds);
+        const json = await res.json();
+        console.log(json);
+        setSearchResults(json.products); // Assuming the products are nested under a 'products' key
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError("Error fetching data. Please try again later.");
       }
     };
 
@@ -53,28 +42,27 @@ const Homepage: React.FC = () => {
       <LanguageSelector />
       <div>
         <h2>Search Results</h2>
-        <ul>
-          {searchResults.map((result) => (
-            <li key={result.id}>{result.name}</li>
-          ))}
-        </ul>
+        {error ? (
+          <p>{error}</p>
+        ) : Array.isArray(searchResults) && searchResults.length > 0 ? (
+          <div className="product-grid">
+            {searchResults.map((product: any) => (
+              <div key={product.id} className="product-card">
+                <img src={product.image} alt={product.name} />
+                <h3>{product.name}</h3>
+                <p>{product.price}</p>
+                <button>Add to Cart</button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No data received from the API.</p>
+        )}
       </div>
 
-      {productDetails && (
-        <div>
-          <h2>Product Details</h2>
-          <p>Name: {productDetails.name}</p>
-          <p>Price: {productDetails.price}</p>
-        </div>
-      )}
-
-      <div>
+      <div className="mt-5">
         <h2>Category Products</h2>
-        <ul>
-          {categoryProducts.map((product) => (
-            <li key={product.id}>{product.name}</li>
-          ))}
-        </ul>
+        {/* Render your category products here */}
       </div>
       <BestDeals products={bestDeals} />
     </DefaultLayout>

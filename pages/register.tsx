@@ -39,10 +39,10 @@ const Register: React.FC = () => {
 
   return (
     <Layout>
-      {" "}
-      {/* Wrap your component with SessionProvider */}
       <div className="container mx-auto my-8">
-        <h2 className="text-3xl font-semibold mb-4 text-center">Register</h2>
+        <h2 className="text-3xl font-semibold mb-4 text-center mt-14 mb-7">
+          Register
+        </h2>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
           <label className="block mb-2">
             Email:

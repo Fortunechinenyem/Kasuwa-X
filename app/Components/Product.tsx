@@ -5,15 +5,15 @@ import DynamicAddToCartButton from "./DynamicAddToCartButton";
 interface ProductProps {
   id: number;
   name: string;
-  description: string; // Add description field
+  description?: string; // Make description optional
   price: number;
-  userId?: string; // Add userId field if needed
+  userId?: string;
 }
 
 const Product: React.FC<ProductProps> = ({
   id,
   name,
-  description,
+  description = "", // Set a default value for description
   price,
   userId,
 }) => {

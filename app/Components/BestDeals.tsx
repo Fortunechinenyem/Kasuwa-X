@@ -1,13 +1,16 @@
 import React from "react";
 import Product from "./Product";
 
+interface ProductType {
+  id: number;
+  name: string;
+  price: number;
+  description?: string;
+  // Add other fields as needed
+}
+
 interface BestDealsProps {
-  products: {
-    id: number;
-    name: string;
-    price: number;
-    description: string;
-  }[];
+  products: ProductType[];
 }
 
 const BestDeals: React.FC<BestDealsProps> = ({ products }) => {

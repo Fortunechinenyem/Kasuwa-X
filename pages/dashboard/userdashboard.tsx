@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { orderService } from "../api/orderService";
-import { Order } from "../order";
+import { OrderData } from "../order";
 import UserDashboardLayout from "@/app/Layouts/UserDashboradLayout";
 
 interface UserDashboardProps {
@@ -9,7 +9,7 @@ interface UserDashboardProps {
 }
 
 const UserDashboard: React.FC<UserDashboardProps> = ({ userId }) => {
-  const [orderHistory, setOrderHistory] = useState<Order[]>([]);
+  const [orderHistory, setOrderHistory] = useState<OrderData[]>([]);
 
   useEffect(() => {
     const fetchOrderHistory = async () => {

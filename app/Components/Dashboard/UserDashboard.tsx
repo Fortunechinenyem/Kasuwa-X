@@ -1,6 +1,6 @@
 // components/UserDashboard.tsx
 import { orderService } from "@/pages/api/orderService";
-import { Order } from "@/pages/order";
+import { OrderData } from "@/pages/order";
 import React, { useEffect, useState } from "react";
 
 interface UserDashboardProps {
@@ -8,7 +8,7 @@ interface UserDashboardProps {
 }
 
 const UserDashboard: React.FC<UserDashboardProps> = ({ userId }) => {
-  const [orderHistory, setOrderHistory] = useState<Order[]>([]);
+  const [orderHistory, setOrderHistory] = useState<OrderData[]>([]);
 
   useEffect(() => {
     const fetchOrderHistory = async () => {

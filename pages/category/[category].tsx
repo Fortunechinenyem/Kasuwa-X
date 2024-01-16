@@ -9,7 +9,6 @@ interface ProductType {
   name: string;
   price: number;
   image: string;
-  // Add other fields as needed
 }
 
 const Category: React.FC = () => {
@@ -35,7 +34,6 @@ const Category: React.FC = () => {
     fetchCategoryProducts();
   }, [category]);
 
-  // Check if category is undefined
   if (typeof category !== "string") {
     return (
       <Layout>

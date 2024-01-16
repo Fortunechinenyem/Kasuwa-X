@@ -70,7 +70,6 @@ const Checkout: React.FC = () => {
             <div className="mt-4">
               <h3 className="text-xl font-semibold mb-2">Delivery Details</h3>
               <form onSubmit={handleSubmit}>
-                {/* Add your form fields for delivery details here */}
                 <div className="mb-4">
                   <label
                     htmlFor="fullName"

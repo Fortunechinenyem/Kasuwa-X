@@ -4,7 +4,7 @@ import { Order } from "@/pages/order";
 import React, { useEffect, useState } from "react";
 
 interface UserDashboardProps {
-  userId: string; // Pass the authenticated user's ID
+  userId: string;
 }
 
 const UserDashboard: React.FC<UserDashboardProps> = ({ userId }) => {

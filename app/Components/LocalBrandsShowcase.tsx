@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface LocalBrandsShowcaseProps {
@@ -15,7 +16,7 @@ const LocalBrandsShowcase: React.FC<LocalBrandsShowcaseProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {brands.map((brand) => (
           <div key={brand.id} className="bg-white p-4 rounded-md shadow-md">
-            <img
+            <Image
               src={brand.logo}
               alt={brand.name}
               className="mb-2 rounded-md"

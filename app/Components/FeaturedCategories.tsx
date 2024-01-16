@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface FeaturedCategoriesProps {
@@ -15,7 +16,7 @@ const FeaturedCategories: React.FC<FeaturedCategoriesProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {categories.map((category) => (
           <div key={category.id} className="bg-white p-4 rounded-md shadow-md">
-            <img
+            <Image
               src={category.image}
               alt={category.name}
               className="mb-2 rounded-md"

@@ -15,7 +15,6 @@ const UserDashboardLayout: React.FC<UserDashboardLayoutProps> = ({
           <li className="hover:text-gray-300 cursor-pointer">Home</li>
           <li className="hover:text-gray-300 cursor-pointer">Orders</li>
           <li className="hover:text-gray-300 cursor-pointer">Account</li>
-          {/* Add more navigation links as needed */}
         </ul>
         <div>User Profile</div>
       </nav>

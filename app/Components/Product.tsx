@@ -13,7 +13,7 @@ interface ProductProps {
 const Product: React.FC<ProductProps> = ({
   id,
   name,
-  description = "", // Set a default value for description
+  description = "",
   price,
   userId,
 }) => {

@@ -5,6 +5,7 @@ import CurrencySelector from "@/app/Components/CurrencySelector";
 import LanguageSelector from "@/app/Components/LanguageSelector";
 import BestDeals from "@/app/Components/BestDeals";
 import { fetchData } from "@/utils/api";
+import Image from "next/image";
 
 const bestDeals = [
   { id: 1, name: "Deal 1", price: 3500.99 },
@@ -52,7 +53,7 @@ const Homepage: React.FC = () => {
           <div className="product-grid">
             {generalProducts.map((product: any) => (
               <div key={product.id} className="product-card">
-                <img src={product.image} alt={product.name} />
+                <Image src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
                 <p>{product.price}</p>
                 <button>Add to Cart</button>

@@ -5,7 +5,7 @@ import { OrderData } from "../order";
 import UserDashboardLayout from "@/app/Layouts/UserDashboradLayout";
 
 interface UserDashboardProps {
-  userId: string; // Pass the authenticated user's ID
+  userId: string;
 }
 
 const UserDashboard: React.FC<UserDashboardProps> = ({ userId }) => {

@@ -14,6 +14,9 @@ const Footer: React.FC = () => {
             <li>
               <Link href="/category/clothing">Clothing</Link>
             </li>
+            <li>
+              <Link href="/category/clothing">Household Items</Link>
+            </li>
           </ul>
         </div>
         <div>
@@ -24,6 +27,9 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <Link href="/faq">FAQ</Link>
+            </li>
+            <li>
+              <Link href="/return">Refunds</Link>
             </li>
           </ul>
         </div>

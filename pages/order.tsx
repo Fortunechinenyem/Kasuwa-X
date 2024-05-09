@@ -1,31 +1,42 @@
 import React from "react";
+import Order, { OrderData } from "@/app/Components/Order";
 
-export interface OrderData {
-  id: number;
-  userId: string;
-  items: OrderItem[];
-  totalAmount: number;
-  deliveryAddress: string;
-  phoneNumber: string;
-  email: string;
-  paymentStatus: string;
-}
+const OrderPage: React.FC = () => {
+  // Mock order history data
+  const orderHistory: OrderData[] = [
+    {
+      id: 1,
+      userId: "user123",
+      items: [
+        { productId: 1, productName: "Product 1", quantity: 2, price: 100 },
+        { productId: 2, productName: "Product 2", quantity: 1, price: 50 },
+      ],
+      totalAmount: 250,
+      deliveryAddress: "123 Main St",
+      phoneNumber: "123-456-7890",
+      email: "user@example.com",
+      paymentStatus: "Paid",
+    },
+    // Add more order history data as needed
+  ];
 
-export interface OrderItem {
-  productId: number;
-  productName: string;
-  quantity: number;
-  price: number;
-}
-
-const Order: React.FC = () => {
-  // Your page content here
   return (
-    <div>
-      <h1>Order Page</h1>
-      {/* Add your page content here */}
+    <div className="container mx-auto my-8">
+      <h1 className="text-3xl font-semibold mb-4">Order Page</h1>
+
+      <div>
+        <h2 className="text-xl font-semibold mb-2">Order History</h2>
+        <Order orders={orderHistory} />
+      </div>
+
+      <div className="mt-8">
+        <p>
+          Add any additional content or actions related to orders here, such as
+          order tracking, customer support information, etc.
+        </p>
+      </div>
     </div>
   );
 };
 
-export default Order;
+export default OrderPage;

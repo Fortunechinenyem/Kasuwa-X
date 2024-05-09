@@ -104,7 +104,9 @@ const Navbar: React.FC = () => {
                 </span>
               )}
             </Link>
-
+            <Link href="/order" className="md:block md:mt-2 ">
+              <button className="button">Order</button>
+            </Link>
             <Link href="/login" className="md:block md:mt-2 ">
               <button className="button">Login</button>
             </Link>

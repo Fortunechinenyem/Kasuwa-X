@@ -1,5 +1,7 @@
 import React from "react";
+
 import Order, { OrderData } from "@/app/Components/Order";
+import Link from "next/link";
 
 const OrderPage: React.FC = () => {
   // Mock order history data
@@ -35,6 +37,9 @@ const OrderPage: React.FC = () => {
           order tracking, customer support information, etc.
         </p>
       </div>
+      <button className="mt-8 b button px-6 py-2 rounded-full hover:bg-purple-100 hover:text-black transition duration-300">
+        <Link href="/">Go Back Home</Link>
+      </button>
     </div>
   );
 };

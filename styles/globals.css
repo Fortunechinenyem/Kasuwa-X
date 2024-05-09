@@ -125,3 +125,15 @@ a {
 .product-card button:hover {
   background-color: #9bc59d;
 }
+
+.product-card {
+  width: 100%;
+  max-width: 300px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}

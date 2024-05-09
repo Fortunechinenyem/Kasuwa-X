@@ -5,9 +5,10 @@ import DynamicAddToCartButton from "./DynamicAddToCartButton";
 interface ProductProps {
   id: number;
   name: string;
-  description?: string; // Make description optional
+  description?: string;
   price: number;
   userId?: string;
+  imageUrl?: string; // Add imageUrl to the ProductProps interface
 }
 
 const Product: React.FC<ProductProps> = ({
@@ -16,18 +17,15 @@ const Product: React.FC<ProductProps> = ({
   description = "",
   price,
   userId,
+  imageUrl, // Destructure imageUrl from props
 }) => {
   useEffect(() => {
-    // Attach the event handler only on the client side
     const handleAddToCart = () => {
       console.log(`Add to cart: ${name}`);
-      // You can also include other information like description, price, userId, etc.
     };
 
-    // Get the button by its ID
     const addToCartButton = document.getElementById(`addToCartButton-${id}`);
 
-    // Attach the event handler if the button exists
     if (addToCartButton) {
       addToCartButton.addEventListener("click", handleAddToCart);
     }
@@ -41,6 +39,7 @@ const Product: React.FC<ProductProps> = ({
 
   return (
     <div className="bg-white p-4 rounded-md shadow-md">
+      {imageUrl && <img src={imageUrl} alt={name} className="mb-2" />}{" "}
       <h3 className="text-lg font-semibold mb-2">{name}</h3>
       <p className="text-gray-600 mb-2">{description}</p>
       <p className="text-gray-600 mb-2">N{price.toFixed(2)}</p>
